@@ -7,8 +7,8 @@
     "test": "npx playwright test",
     "test:smoke": "npx playwright test --grep @smoke",
     "test:regression": "npx playwright test --grep @regression",
-    "test:ui": "npx playwright test \"tests/UI Test\"",
-    "test:api": "npx playwright test \"tests/API Test\"",
+    "test:ui": "npx playwright test --grep TC-UI",
+    "test:api": "npx playwright test --grep TC-API",
     "test:headed": "npx playwright test --headed",
     "report": "npx playwright show-report execution-reports/html"
   },

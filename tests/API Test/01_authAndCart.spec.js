@@ -20,7 +20,7 @@ test.describe("Toolshop API — auth and cart", () => {
     const body = await response.json();
     expect(body.email).toBe(payload.email);
     expect(body.id).toBeTruthy();
-    new storeResponseToJsonFile().storeJsonDataToFile(body, "lastRegisteredUser");
+    new storeResponseToJsonFile().storeJsonDataToFile({ id: body.id }, "lastRegisteredUserMeta");
   });
 
   test("TC-API-02 Login returns bearer token @smoke", async () => {
