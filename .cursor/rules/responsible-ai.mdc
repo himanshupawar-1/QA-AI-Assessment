@@ -1,0 +1,10 @@
+---
+description: Responsible AI and secret handling for this QA assessment
+alwaysApply: true
+---
+
+# Responsible AI
+
+Do not paste production credentials, tokens, PII dumps, or internal URLs into prompts.
+Do not ask the model to invent passing tests by weakening assertions.
+Review every generated locator, payload, and assertion against the live Toolshop app or API.

@@ -1,0 +1,161 @@
+<testsuites id="" name="" tests="15" failures="0" skipped="0" errors="0" time="64.634535">
+<testsuite name="API Test\01_authAndCart.spec.js" timestamp="2026-08-31T06:17:01.719Z" hostname="toolshop-chromium" tests="4" failures="0" skipped="0" time="5.67" errors="0">
+<testcase name="Toolshop API — auth and cart › TC-API-01 Register a new customer @smoke" classname="API Test\01_authAndCart.spec.js" time="0.857">
+<system-out>
+<![CDATA[Replaced!
+curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Alfonso","last_name":"Stiedemann","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157023653.CWigOo@mailinator.com","password":"Qa#hgg8jlCb0a9!","address":{"street":"821 Joanny Ferry","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+Data has been saved to lastRegisteredUser.json
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — auth and cart › TC-API-02 Login returns bearer token @smoke" classname="API Test\01_authAndCart.spec.js" time="1.401">
+<system-out>
+<![CDATA[curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Garret","last_name":"Rolfson","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157024505.jNPSJ1@mailinator.com","password":"Qa#PP0j5c4QvJ9!","address":{"street":"917 Dino Alley","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+curl -X POST https://api.practicesoftwaretesting.com/users/login -H 'accept : application/json' -H 'content-type : application/json' -d '{"email":"qa.toolshop.1788157024505.jNPSJ1@mailinator.com","password":"Qa#PP0j5c4QvJ9!"}'
+Data has been saved to AccessTokenMeta.json
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — auth and cart › TC-API-03 Invalid login is rejected @regression" classname="API Test\01_authAndCart.spec.js" time="1.508">
+<system-out>
+<![CDATA[curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Alyce","last_name":"Stiedemann","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157025908.zwJezu@mailinator.com","password":"Qa#3dazb3k2BX9!","address":{"street":"562 Rowan Close","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+curl -X POST https://api.practicesoftwaretesting.com/users/login -H 'accept : application/json' -H 'content-type : application/json' -d '{"email":"qa.toolshop.1788157025908.zwJezu@mailinator.com","password":"WrongPass#999"}'
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — auth and cart › TC-API-04 Authenticated user can create a cart @smoke" classname="API Test\01_authAndCart.spec.js" time="1.904">
+<system-out>
+<![CDATA[curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Ruth","last_name":"Turner","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157027416.nFmub3@mailinator.com","password":"Qa#LYCZb2yyS49!","address":{"street":"461 Hillside Close","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+curl -X POST https://api.practicesoftwaretesting.com/users/login -H 'accept : application/json' -H 'content-type : application/json' -d '{"email":"qa.toolshop.1788157027416.nFmub3@mailinator.com","password":"Qa#LYCZb2yyS49!"}'
+curl -X POST https://api.practicesoftwaretesting.com/carts -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{}'
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="API Test\02_productsAndInvoice.spec.js" timestamp="2026-08-31T06:17:01.719Z" hostname="toolshop-chromium" tests="4" failures="0" skipped="0" time="9.869" errors="0">
+<testcase name="Toolshop API — products, cart lines, invoice › TC-API-05 Product catalog and search @smoke" classname="API Test\02_productsAndInvoice.spec.js" time="1.24">
+<system-out>
+<![CDATA[curl -X GET https://api.practicesoftwaretesting.com/products -H 'accept : application/json' -H 'content-type : application/json'
+curl -X GET https://api.practicesoftwaretesting.com/products?q=hammer -H 'accept : application/json' -H 'content-type : application/json'
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — products, cart lines, invoice › TC-API-06 Add product to cart and verify contents @regression" classname="API Test\02_productsAndInvoice.spec.js" time="3.697">
+<system-out>
+<![CDATA[curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Valerie","last_name":"O'Conner","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157030575.QKgKJF@mailinator.com","password":"Qa#oMIHnBDfmr9!","address":{"street":"39697 N Elm Street","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+curl -X POST https://api.practicesoftwaretesting.com/users/login -H 'accept : application/json' -H 'content-type : application/json' -d '{"email":"qa.toolshop.1788157030575.QKgKJF@mailinator.com","password":"Qa#oMIHnBDfmr9!"}'
+curl -X GET https://api.practicesoftwaretesting.com/products -H 'accept : application/json' -H 'content-type : application/json'
+curl -X POST https://api.practicesoftwaretesting.com/carts -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{}'
+curl -X POST https://api.practicesoftwaretesting.com/carts/01m1b7e7a28r2qyycbxcans00n -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{"product_id":"01M1B6F4S291DTHH09188SECA0","quantity":2}'
+curl -X GET https://api.practicesoftwaretesting.com/carts/01m1b7e7a28r2qyycbxcans00n -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]'
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — products, cart lines, invoice › TC-API-07 Generate cash-on-delivery invoice @regression" classname="API Test\02_productsAndInvoice.spec.js" time="4.384">
+<system-out>
+<![CDATA[curl -X POST https://api.practicesoftwaretesting.com/users/register -H 'accept : application/json' -H 'content-type : application/json' -d '{"first_name":"Marcelino","last_name":"Orn","dob":"1992-06-15","phone":"5551234567","email":"qa.toolshop.1788157034282.C16rMX@mailinator.com","password":"Qa#07bRvK1WcD9!","address":{"street":"20953 The Dell","house_number":"101","city":"New York","state":"NY","country":"US","postal_code":"10001"}}'
+curl -X POST https://api.practicesoftwaretesting.com/users/login -H 'accept : application/json' -H 'content-type : application/json' -d '{"email":"qa.toolshop.1788157034282.C16rMX@mailinator.com","password":"Qa#07bRvK1WcD9!"}'
+curl -X GET https://api.practicesoftwaretesting.com/products -H 'accept : application/json' -H 'content-type : application/json'
+curl -X POST https://api.practicesoftwaretesting.com/carts -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{}'
+curl -X POST https://api.practicesoftwaretesting.com/carts/01m1b7earp2j9hxsjw6015awry -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{"product_id":"01M1B6F4S291DTHH09188SECA0","quantity":1}'
+curl -X POST https://api.practicesoftwaretesting.com/invoices -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]' -d '{"billing_street":"Zoey Shore","billing_city":"Hesselbury","billing_state":"Florida","billing_country":"TG","billing_postal_code":"1234AA","payment_method":"cash-on-delivery","cart_id":"01m1b7earp2j9hxsjw6015awry","payment_details":{}}'
+curl -X GET https://api.practicesoftwaretesting.com/invoices -H 'accept : application/json' -H 'content-type : application/json' -H 'Authorization : Bearer [REDACTED]'
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop API — products, cart lines, invoice › TC-API-08 Invoices without token are unauthorized @regression" classname="API Test\02_productsAndInvoice.spec.js" time="0.548">
+<system-out>
+<![CDATA[curl -X GET https://api.practicesoftwaretesting.com/invoices -H 'accept : application/json' -H 'content-type : application/json'
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="UI Test\01_catalog.spec.js" timestamp="2026-08-31T06:17:01.719Z" hostname="toolshop-chromium" tests="2" failures="0" skipped="0" time="6.566" errors="0">
+<testcase name="Toolshop UI — catalog @smoke › TC-UI-01 Catalog products are listed on home @smoke" classname="UI Test\01_catalog.spec.js" time="3.547">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:23.775Z] Toolshop home catalog loaded
+
+[[ATTACHMENT|..\..\test-results\UI Test-01_catalog-Toolshop-UI-—-catalog-smoke-TC-UI-01-Catalog-products-are-listed-on-home-smoke-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop UI — catalog @smoke › TC-UI-02 Search returns matching products @smoke" classname="UI Test\01_catalog.spec.js" time="3.019">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:26.669Z] Toolshop home catalog loaded
+info: [2026-08-31T06:17:26.806Z] Searched for hammer
+
+[[ATTACHMENT|..\..\test-results\UI Test-01_catalog-Toolshop-UI-—-catalog-smoke-TC-UI-02-Search-returns-matching-products-smoke-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="UI Test\02_auth.spec.js" timestamp="2026-08-31T06:17:01.719Z" hostname="toolshop-chromium" tests="3" failures="0" skipped="0" time="17.033" errors="0">
+<testcase name="Toolshop UI — authentication › TC-UI-03 Invalid login shows error @regression" classname="UI Test\02_auth.spec.js" time="3.382">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:29.398Z] Opened Toolshop login page
+info: [2026-08-31T06:17:30.374Z] Invalid login error displayed
+
+[[ATTACHMENT|..\..\test-results\UI Test-02_auth-Toolshop-UI-—-authentication-TC-UI-03-Invalid-login-shows-error-regression-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop UI — authentication › TC-UI-04 Valid login opens account menu @smoke" classname="UI Test\02_auth.spec.js" time="5.475">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:33.864Z] Opened Toolshop login page
+info: [2026-08-31T06:17:35.881Z] Login successful
+
+[[ATTACHMENT|..\..\test-results\UI Test-02_auth-Toolshop-UI-—-authentication-TC-UI-04-Valid-login-opens-account-menu-smoke-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop UI — authentication › TC-UI-05 New customer can register then login @regression" classname="UI Test\02_auth.spec.js" time="8.176">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:38.585Z] Opened register page
+info: [2026-08-31T06:17:40.951Z] Registered qa.toolshop.1788157056238.OeHEdb@mailinator.com
+info: [2026-08-31T06:17:42.986Z] Login successful
+info: [2026-08-31T06:17:43.137Z] Opened profile
+
+[[ATTACHMENT|..\..\test-results\UI Test-02_auth-Toolshop-UI-—-authentication-T-3d033-New-customer-can-register-then-login-regression-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="UI Test\03_checkout.spec.js" timestamp="2026-08-31T06:17:01.719Z" hostname="toolshop-chromium" tests="2" failures="0" skipped="0" time="21.901" errors="0">
+<testcase name="Toolshop UI — cart and checkout › TC-UI-06 Add product to cart and increase quantity @smoke" classname="UI Test\03_checkout.spec.js" time="5.153">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:46.542Z] Toolshop home catalog loaded
+info: [2026-08-31T06:17:46.611Z] Opened first catalog product
+info: [2026-08-31T06:17:47.481Z] Quantity set towards 2
+info: [2026-08-31T06:17:47.541Z] Clicked Add to cart
+info: [2026-08-31T06:17:48.804Z] Opened cart/checkout
+
+[[ATTACHMENT|..\..\test-results\UI Test-03_checkout-Toolshop-UI-—-cart-and-che-a1aa0-Add-product-to-cart-and-increase-quantity-smoke-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Toolshop UI — cart and checkout › TC-UI-07 Register, checkout COD, confirm twice, view invoice @regression" classname="UI Test\03_checkout.spec.js" time="16.748">
+<system-out>
+<![CDATA[info: [2026-08-31T06:17:51.981Z] Opened register page
+info: [2026-08-31T06:17:54.538Z] Registered qa.toolshop.1788157069490.RhZJkt@mailinator.com
+info: [2026-08-31T06:17:56.564Z] Login successful
+info: [2026-08-31T06:17:57.852Z] Toolshop home catalog loaded
+info: [2026-08-31T06:17:57.909Z] Opened first catalog product
+info: [2026-08-31T06:17:58.728Z] Quantity set towards 1
+info: [2026-08-31T06:17:58.783Z] Clicked Add to cart
+info: [2026-08-31T06:18:01.548Z] Quantity set towards 2
+info: [2026-08-31T06:18:01.597Z] Clicked Add to cart
+info: [2026-08-31T06:18:02.883Z] Opened cart/checkout
+info: [2026-08-31T06:18:03.149Z] Clicked proceed-1
+info: [2026-08-31T06:18:03.213Z] Clicked proceed-2
+info: [2026-08-31T06:18:03.338Z] Clicked proceed-3
+info: [2026-08-31T06:18:03.347Z] Reached payment step
+info: [2026-08-31T06:18:03.421Z] Confirm click 1
+info: [2026-08-31T06:18:03.853Z] Confirm click 2 — invoice generation
+info: [2026-08-31T06:18:04.846Z] Opened My Invoices
+
+[[ATTACHMENT|..\..\test-results\UI Test-03_checkout-Toolshop-UI-—-cart-and-che-7100f-ckout-COD-confirm-twice-view-invoice-regression-toolshop-chromium\test-finished-1.png]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

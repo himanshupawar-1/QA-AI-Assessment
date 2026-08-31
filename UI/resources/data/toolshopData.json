@@ -1,0 +1,20 @@
+{
+  "demoCustomer": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "welcome01",
+    "firstName": "Jane"
+  },
+  "invalidLogin": {
+    "email": "customer@practicesoftwaretesting.com",
+    "password": "WrongPass#999"
+  },
+  "searchTerm": "hammer",
+  "checkout": {
+    "street": "Zoey Shore",
+    "city": "Hesselbury",
+    "state": "Florida",
+    "country": "TG",
+    "postalCode": "1234AA",
+    "paymentMethod": "cash-on-delivery"
+  }
+}

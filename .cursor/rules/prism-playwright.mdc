@@ -1,0 +1,13 @@
+---
+description: Prism Playwright conventions for Toolshop UI and API tests
+alwaysApply: true
+---
+
+# Prism Toolshop conventions
+
+- Keep Prism folders: `UI/pageobjects`, `API/pageobjects`, `API/utilities`, `tests/UI Test`, `tests/API Test`.
+- Route UI work through `POManager`. Do not put locators in spec files unless a one-off wait is required.
+- Tag tests `@smoke` or `@regression`. Keep 5–8 automated cases per tier.
+- UI checkout invoice generation requires **two Confirm clicks**.
+- Never commit personal secrets. Demo Toolshop accounts are public fixture data only.
+- Prefer `data-test` locators. Validate AI output against the live SUT before keeping it.

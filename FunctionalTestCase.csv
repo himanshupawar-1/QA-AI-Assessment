@@ -1,0 +1,9 @@
+ID,Title,Type,Priority,Suite,AC,Preconditions,Steps,Expected Result,Automation Mapping
+TC-M-01,Home catalog lists products,Functional,High,Smoke,Catalog,Open Toolshop URL,1. Navigate to home 2. Observe product cards,At least one product name and price is visible,TC-UI-01
+TC-M-02,Search filters catalog by keyword,Functional,High,Smoke,Search,Home is loaded,1. Enter hammer in search 2. Submit,Results relate to hammer; empty state only if no match,TC-UI-02
+TC-M-03,Login rejected with wrong password,Negative,High,Regression,AC1,Login page open,1. Enter customer email 2. Enter invalid password 3. Submit,Error is shown; user stays unauthenticated,TC-UI-03 / TC-API-03
+TC-M-04,Login with valid demo customer,Functional,High,Smoke,AC1,Known demo user,1. Enter valid email and password 2. Submit,Account menu shows first name,TC-UI-04 / TC-API-02
+TC-M-05,Register unique customer then login,Functional,High,Regression,AC1,Register page,1. Fill valid unique details 2. Submit 3. Login,Account is created and profile email matches,TC-UI-05 / TC-API-01
+TC-M-06,Add two products and update quantity,Functional,High,Smoke,AC2,Logged in or guest cart allowed,1. Open product 2. Increase qty 3. Add to cart 4. Repeat second product,Cart shows both lines and updated quantity,TC-UI-06 / TC-API-06
+TC-M-07,COD checkout requires two Confirm clicks for invoice,End-to-end,Critical,Regression,AC2,Cart has in-stock items and user is logged in,1. Proceed checkout 2. Select cash on delivery 3. Click Confirm 4. Click Confirm again 5. Open My Invoices,Payment success; invoice appears under My Invoices,TC-UI-07 / TC-API-07
+TC-M-08,Invoices API without bearer token,Negative,Medium,Regression,API security,API base URL known,1. GET /invoices with no Authorization,401 or 403,TC-API-08

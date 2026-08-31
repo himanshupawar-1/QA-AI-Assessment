@@ -1,0 +1,15 @@
+node_modules/
+.env
+test-results/
+playwright/.cache/
+executionResultLogs.log
+API/testdata/api_requests.log
+API/testdata/lastRegisteredUser.json
+API/testdata/lastRegisteredUserMeta.json
+API/testdata/AccessToken.json
+*.log
+.DS_Store
+Thumbs.db
+storeBrowserState.json
+extractedImg/
+!execution-reports/**
