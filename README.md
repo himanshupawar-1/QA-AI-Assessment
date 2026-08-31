@@ -60,7 +60,9 @@ After `npm test`:
 - `docs/` — risks, traceability, exploratory, defects, automation opportunities
 - `ai-prompts/` — prompt history
 
-## Cursor
+## Submission
 
-- Rules: `.cursor/rules/`
-- Skills: `.cursor/skills/` (`caveman-prompting`, `summarize-chat-to-ai-prompts`, `prism-toolshop-automation`)
+Public GitHub: https://github.com/himanshupawar-1/QA-AI-Assessment
+
+History is split across multiple commits (docs → prompts → framework → tests → reports → review cleanup). Do not squash before evaluation.
+
