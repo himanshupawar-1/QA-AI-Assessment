@@ -24,8 +24,15 @@
 - AI Response Summary: `getByText(/invoice/i)`.
 - Debugging Outcome: Matched hidden “My invoices” dropdown. Replaced with exact “Payment was successful” and `INV-` on the invoices page.
 
-## Entry 5 — Profile email not in body text
+## Entry 6 — Demo user 423 Locked
 
-- Prompt: TC-UI-05 login then verify profile email.
-- AI Response Summary: `expect(body).toContainText(email)`.
-- Debugging Outcome: Email lives in an input value. Switched to `[data-test="email"]` toHaveValue.
+- Prompt: TC-API-02 expected 200, got 423 on customer@practicesoftwaretesting.com.
+- AI Response Summary: Treat 423 as success or retry demo login.
+- Debugging Outcome: Rejected weakening the assertion. Unique register-then-login replaced the shared demo account. Same for UI TC-UI-04.
+
+## Entry 7 — Third Confirm vs AC
+
+- Prompt: After two Confirms, Thanks page is flaky.
+- AI Response Summary: Click Confirm three times always.
+- Debugging Outcome: Kept two Confirms as the AC; extra click only if Thanks is missing. Assert INV- on My Invoices.
+
