@@ -33,7 +33,7 @@ npm run test:api         # API specs
 npm run report           # open HTML report
 ```
 
-Windows PowerShell: if a folder path with spaces fails, use `npx playwright test --grep TC-UI` or `TC-API`.
+Windows PowerShell: prefer `npm run test:ui` / `npm run test:api` (they grep `TC-UI` / `TC-API` so folder names with spaces do not break).
 
 ## Test data
 
