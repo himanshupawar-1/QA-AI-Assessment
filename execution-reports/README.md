@@ -17,4 +17,4 @@ npm run report
 - Demo user login can return **423 Locked** if overused; tests no longer depend on it.
 - Screenshots on failure remain under `test-results/` (not committed).
 
-Copy the HTML report into git after a full `npm test` so evaluators can open it without re-running.
+Regenerate with `npm test` before a new submission drop. The checked-in HTML/JUnit snapshot is from a **15 passed** local run on 2026-08-31.
